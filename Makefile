@@ -1,14 +1,21 @@
+#
+# Created by Nhi Pham @ 05/2018
+#
+
 TOPDIR = $(CURDIR)
+export $(TOPDIR)
 
-all: Driver Demo
+DIRS = driver demo
 
-Driver:
-	make -C driver
+all: $(DIRS)
 
-Demo:
-	make -C demo
+$(DIRS):
+	make -C $@
 
 clean:
-	rm -f *.o *.a *.d *.axf
+	@for i in ${DIRS}          \
+	    do                     \
+	       make -C $${i} clean \
+	    done
 
-.PHONY: all clean
+.PHONY: all clean ${DIRS}

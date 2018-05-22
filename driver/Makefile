@@ -1,5 +1,8 @@
 
 all:
-	@echo "DRIVER"
+	make -C driverlib
 
-.PHONY: all
+clean:
+	make -C driverlib clean
+
+.PHONY: all clean
