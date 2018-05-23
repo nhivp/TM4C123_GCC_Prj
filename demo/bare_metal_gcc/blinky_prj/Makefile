@@ -51,7 +51,7 @@ all: blinky.axf
 # The rule to clean out all the build products.
 #
 clean:
-	@rm -rf *.o *.d *.axf ${wildcard *~}
+	@rm -rf *.o *.d *.axf *.bin ${wildcard *~}
 
 #
 # Rules for building the Project Zero Example.
