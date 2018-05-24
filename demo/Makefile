@@ -2,7 +2,19 @@
 # Created by Nhi Pham @ 05-2018
 #
 
-all:
-	@echo "DEMO"
+PROJECTS =         \
+	bare_metal_gcc \
+	freeRTOS_gcc
 
-.PHONY: all
+all: $(PROJECTS)
+
+$(PROJECTS):
+	make -C $@
+
+clean:
+	@for i in ${PROJECTS};      \
+	    do                      \
+	       make -C $${i} clean; \
+	    done
+
+.PHONY: all clean $(PROJECTS)

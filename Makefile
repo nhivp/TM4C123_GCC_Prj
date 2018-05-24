@@ -13,9 +13,9 @@ $(DIRS):
 	make -C $@
 
 clean:
-	@for i in ${DIRS}          \
-	    do                     \
-	       make -C $${i} clean \
+	@for i in ${DIRS};          \
+	    do                      \
+	       make -C $${i} clean; \
 	    done
 
 .PHONY: all clean ${DIRS}
