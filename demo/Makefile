@@ -2,9 +2,8 @@
 # Created by Nhi Pham @ 05-2018
 #
 
-PROJECTS =         \
-	bare_metal_gcc \
-	freeRTOS_gcc
+PROJECTS += bare_metal_gcc
+PROJECTS += freeRTOS_gcc
 
 all: $(PROJECTS)
 

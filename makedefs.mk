@@ -34,12 +34,7 @@ ${LIBS}/%.a:
 # The rule for linking the application.
 #
 %.axf:
-	ldname="${SCATTERgcc_${notdir ${@:.axf=}}}"
-	echo ${LD} -T blinky.ld                            \
-		--entry ${ENTRY_${notdir ${@:.axf=}}}           \
-		${LDFLAGS} -o ${@} $(filter %.o %.a, ${^})
-	${LD} -T blinky.ld                                 \
+	${LD} -T ${SCATTERgcc_${notdir ${@:.axf=}}}         \
 		  --entry ${ENTRY_${notdir ${@:.axf=}}}         \
 		  ${LDFLAGS} -o ${@} $(filter %.o %.a, ${^})
-		#   '${LIBC}' '${LIBGCC}' '${LIBM}'
 	@${OBJCOPY} -O binary ${@} ${@:.axf=.bin}

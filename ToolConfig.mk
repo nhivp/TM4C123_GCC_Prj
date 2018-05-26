@@ -56,21 +56,6 @@ CFLAGS	+= -DPART_TM4C123GH6PM           \
 LDFLAGS=--gc-sections
 
 #
-# Get the location of libc.a from the GCC front-end.
-#
-# LIBC=${shell ${CC} ${CFLAGS} -print-file-name=libc.a}
-
-#
-# Get the location of libgcc.a from the GCC front-end.
-#
-# LIBGCC=${shell ${CC} ${CFLAGS} -print-libgcc-file-name}
-
-#
-# Get the location of libm.a from the GCC front-end.
-#
-# LIBM=${shell ${CC} ${CFLAGS} -print-file-name=libm.a}
-
-#
 # Add the include file paths to AFLAGS and CFLAGS.
 #
 AFLAGS+=${patsubst %,-I%,${subst :, ,${IPATH}}}

@@ -5,7 +5,8 @@
 TOPDIR = $(CURDIR)
 export $(TOPDIR)
 
-DIRS = driver demo
+DIRS += driver
+DIRS += demo
 
 all: $(DIRS)
 
