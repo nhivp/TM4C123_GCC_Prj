@@ -25,23 +25,6 @@ make
 sudo cp lm4flash /usr/bin
 ```
 
-## Compile and flash a demo project
-
-### Introduce about the demo project
-
-*TBD*
-
-### Compile
-
-*TBD*
-
-### Flash
-
-*TBD*
-
-## Debug
-
-*TBD*
-
 ## Reference
 
+* Refer to [Wiki Page](https://github.com/nhivp/TM4C123_GCC_Prj/wiki) for more details
