@@ -20,8 +20,8 @@ ${LIBS}/%.o: %.c
 # The rule for building the object file from each assembly source file.
 #
 ${LIBS}/%.o: %.S
-	echo ${CC} ${AFLAGS} -o ${@} -c ${<}
-	@${CC} ${AFLAGS} -o ${@} -c ${<}
+	echo ${AS} ${AFLAGS} -o ${@} -c ${<}
+	@${AS} ${AFLAGS} -o ${@} -c ${<}
 
 #
 # The rule for creating an object library.
