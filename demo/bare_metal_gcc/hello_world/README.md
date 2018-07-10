@@ -1,4 +1,4 @@
-# A simpile program
+# A simple program
 
 > Writing a simpile program without using Tivaware library
 
