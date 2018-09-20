@@ -7,7 +7,9 @@
 #### Processor Core
 
 * 32-bit ARM Cortex-M4F processor core
-* 18 x 32-bit registers
+* Little Edian - Hardvard Architecture
+* [AMBA 3 Bus Architechture](https://anysilicon.com/understanding-amba-bus-architechture-protocols/): Advanced Performance Bus (APB), Advanced High Performance Bus AHB, Advanced System Bus (ASB).
+* 18 x 32-bit [core registers](README-coreregister.md)
 * 80-MHz operation; 100 [DMIPS](https://en.wikipedia.org/wiki/Dhrystone) performance
 * Pipeline
 * Thumb-2 mixed 16-/32-bit instruction set
