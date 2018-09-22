@@ -8,6 +8,8 @@ CC		= arm-none-eabi-gcc
 LD		= arm-none-eabi-ld
 AR		= arm-none-eabi-ar
 AS		= arm-none-eabi-as
+OBJSIZE	= arm-none-eabi-size
+OBJDUMP	= arm-none-eabi-objdump
 OBJCOPY	= arm-none-eabi-objcopy
 
 # Determine the compiler CPU/FPU options based on the processor variant.

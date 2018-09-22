@@ -5,29 +5,35 @@
 # include compiler
 include ../../../ToolConfig.mk
 
-src := $(wildcard *.c)
-obj := $(subst .c,.o, $(src))
+BUILD_DIR  := build
+SRCS       := $(wildcard *.c)
+OBJECTS    := $(addprefix build/,$(subst .c,.o, $(SRCS)))
+TARGET     := demoApp
 
-all: demoApp.axf
+all: credir $(BUILD_DIR)/$(TARGET).axf
 
-%.o: %.c
-	@echo ${CC} ${CFLAGS} -o ${@} ${^}
-	${CC} ${CFLAGS} -o ${@} ${^}
+# Compile
+$(BUILD_DIR)/%.o: %.c
+	$(CC) $(CFLAGS) -o $(@) -MD -MF $(addprefix build/,$(subst .c,.d,$<)) $(^)
 
 # Linking
-demoApp.axf: ${obj}
-	@echo ${LD} ${obj} -T tm4c123.ld --entry ResetISR ${LDFLAGS} -o ${@}
-	${LD} ${obj} -T tm4c123.ld --entry ResetISR ${LDFLAGS} -o ${@}
-	@${OBJCOPY} -O binary ${@} ${@:.axf=.bin}
+$(BUILD_DIR)/$(TARGET).axf: $(OBJECTS)
+	@$(LD) $(OBJECTS) -T tm4c123.ld --entry ResetISR $(LDFLAGS) -o $(@) -Map=$(BUILD_DIR)/$(TARGET).map
+	@$(OBJCOPY) -O binary ${@} ${@:.axf=.bin}
+	@$(OBJDUMP) -Sd -W $(@) > ${BUILD_DIR}/$(TARGET).lss
+	@$(OBJSIZE) ${@}
 
 # Load demoApp to device
 flash:
-	sudo lm4flash demoApp.bin
+	sudo lm4flash $(BUILD_DIR)/$(TARGET).bin
 
 clean:
-	rm -f *.o *.d *.axf *.bin
+	rm -rf build
 
-app_info: demoApp.axf
-	arm-none-eabi-readelf -a demoApp.axf
+credir:
+	mkdir -p build
+
+app_info: $(BUILD_DIR)/${TARGET}.axf
+	arm-none-eabi-readelf -a $(^)
 
 .PHONY: all clean flash compiling app_info
