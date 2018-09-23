@@ -37,7 +37,7 @@ The vector table contains:
 
 The following is vector table in ARM Cortex-M4:
 
-![Vector table in ARM Cortex-M4 Processor](https://raw.githubusercontent.com/nhivp/TM4C123_GCC_Prj/docs/imgs/vectortable-generic.png "Vector table in ARM Cortex-M4 Processor")
+![Vector table in ARM Cortex-M4 Processor](https://raw.githubusercontent.com/nhivp/TM4C123_GCC_Prj/master/docs/imgs/vectortable-generic.png "Vector table in ARM Cortex-M4 Processor")
 
 Definition of vector table:
 
@@ -55,7 +55,7 @@ void (* const g_pfnVectors[])(void) =
 
 And TM4C123G has defined some ISRs (Interrupt Serverice Routines) as follows:
 
-![ISR definition in TM4C123G](https://raw.githubusercontent.com/nhivp/TM4C123_GCC_Prj/docs/imgs/vectortable-tivac.png "ISR definition in TM4C123G")
+![ISR definition in TM4C123G](https://raw.githubusercontent.com/nhivp/TM4C123_GCC_Prj/master/docs/imgs/vectortable-tivac.png "ISR definition in TM4C123G")
 
 #### Reset Handler
 
